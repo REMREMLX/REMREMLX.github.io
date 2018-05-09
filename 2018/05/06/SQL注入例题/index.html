@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="好想念你">
+<meta name="description" content="SQL注入1(http://chinalover.sinaapp.com/index.php)看source，得到sql源码 重点关注这几行，首先第一行是密码进行了md5加密第二行，第三行意思是从数据库选择账号=admin，密码=我们输入的密码的数据，把他们放到队列中query中重点来了，if判断只需要判断数据库的账号是不是，那我们只需要在admin输入后让密码无效掉就好了，即注释掉and（pw=">
 <meta property="og:type" content="article">
-<meta property="og:title" content="post谢我想你">
-<meta property="og:url" content="http://yoursite.com/2018/05/06/post谢我想你/index.html">
+<meta property="og:title" content="SQL注入1">
+<meta property="og:url" content="http://yoursite.com/2018/05/06/SQL注入例题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="好想念你">
+<meta property="og:description" content="SQL注入1(http://chinalover.sinaapp.com/index.php)看source，得到sql源码 重点关注这几行，首先第一行是密码进行了md5加密第二行，第三行意思是从数据库选择账号=admin，密码=我们输入的密码的数据，把他们放到队列中query中重点来了，if判断只需要判断数据库的账号是不是，那我们只需要在admin输入后让密码无效掉就好了，即注释掉and（pw=">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-08T12:36:30.827Z">
+<meta property="og:updated_time" content="2018-05-09T04:06:51.766Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="post谢我想你">
-<meta name="twitter:description" content="好想念你">
+<meta name="twitter:title" content="SQL注入1">
+<meta name="twitter:description" content="SQL注入1(http://chinalover.sinaapp.com/index.php)看source，得到sql源码 重点关注这几行，首先第一行是密码进行了md5加密第二行，第三行意思是从数据库选择账号=admin，密码=我们输入的密码的数据，把他们放到队列中query中重点来了，if判断只需要判断数据库的账号是不是，那我们只需要在admin输入后让密码无效掉就好了，即注释掉and（pw=">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/06/post谢我想你/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/06/SQL注入例题/"/>
 
 
 
 
 
-  <title>post谢我想你 | Hexo</title>
+  <title>SQL注入1 | Hexo</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/post谢我想你/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/SQL注入例题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">post谢我想你</h1>
+          <h1 class="post-title" itemprop="name headline">SQL注入1</h1>
         
 
         <div class="post-meta">
@@ -299,7 +299,8 @@
       
 
       
-        <p>好想念你</p>
+        <p>SQL注入1(<a href="http://chinalover.sinaapp.com/index.php" target="_blank" rel="noopener">http://chinalover.sinaapp.com/index.php</a>)<br>看source，得到sql源码</p>
+<p>重点关注这几行，首先第一行是密码进行了md5加密<br>第二行，第三行意思是从数据库选择账号=admin，密码=我们输入的密码的数据，把他们放到队列中query中<br>重点来了，if判断只需要判断数据库的账号是不是，那我们只需要在admin输入后让密码无效掉就好了，即注释掉and（pw=’。。。。。。。）后面的代码<br>那就构造 admin’) – dsfaasdf  –表示注释，后面的东西乱输就好了<br>得到flag,nctf{ni_ye_hui_sql?} </p>
 
       
     </div>
