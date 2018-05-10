@@ -300,7 +300,7 @@
       
         
           
-            <p>SQL注入1(<a href="http://chinalover.sinaapp.com/index.php" target="_blank" rel="noopener">http://chinalover.sinaapp.com/index.php</a>)<br>看source，得到sql源码<br>![sal1] <a href="http://p8hvan4e5.bkt.clouddn.com/sql1.jpg" target="_blank" rel="noopener">http://p8hvan4e5.bkt.clouddn.com/sql1.jpg</a></p>
+            <p>SQL注入1(<a href="http://chinalover.sinaapp.com/index.php" target="_blank" rel="noopener">http://chinalover.sinaapp.com/index.php</a>)<br>看source，得到sql源码<br>![sql1] <a href="http://p8hvan4e5.bkt.clouddn.com/sql1.jpg" target="_blank" rel="noopener">http://p8hvan4e5.bkt.clouddn.com/sql1.jpg</a></p>
 <p>重点关注这几行，首先第一行是密码进行了md5加密<br>第二行，第三行意思是从数据库选择账号=admin，密码=我们输入的密码的数据，把他们放到队列中query中<br>重点来了，if判断只需要判断数据库的账号是不是，那我们只需要在admin输入后让密码无效掉就好了，即注释掉and（pw=’。。。。。。。）后面的代码<br>那就构造 admin’) – dsfaasdf  –表示注释，后面的东西乱输就好了<br>得到flag,nctf{ni_ye_hui_sql?} </p>
 
           
