@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/06/SQL注入例题/" itemprop="url">SQL注入1</a></h1>
+                <a class="post-title-link" href="/2018/05/06/SQL注入例题/" itemprop="url">WEB题目</a></h1>
         
 
         <div class="post-meta">
@@ -301,7 +301,8 @@
         
           
             <p>SQL注入1(<a href="http://chinalover.sinaapp.com/index.php" target="_blank" rel="noopener">http://chinalover.sinaapp.com/index.php</a>)<br>看source，得到sql源码<br><img src="http://p8hvan4e5.bkt.clouddn.com/sql1.jpg" alt="image"> </p>
-<p>重点关注这几行，首先第一行是密码进行了md5加密<br>第二行，第三行意思是从数据库选择账号=admin，密码=我们输入的密码的数据，把他们放到队列中query中<br>重点来了，if判断只需要判断数据库的账号是不是，那我们只需要在admin输入后让密码无效掉就好了，即注释掉and（pw=’。。。。。。。）后面的代码<br>那就构造 admin’) – dsfaasdf  –表示注释，后面的东西乱输就好了<br>得到flag,nctf{ni_ye_hui_sql?}<br><img src="http://p8hvan4e5.bkt.clouddn.com/photo-1460819739742-50e4486578f5.jpg" alt="image"> </p>
+<p>重点关注这几行，首先第一行是密码进行了md5加密<br>第二行，第三行意思是从数据库选择账号=admin，密码=我们输入的密码的数据，把他们放到队列中query中<br>重点来了，if判断只需要判断数据库的账号是不是，那我们只需要在admin输入后让密码无效掉就好了，即注释掉and（pw=’。。。。。。。）后面的代码<br>那就构造 admin’) – dsfaasdf  –表示注释，后面的东西乱输就好了<br>得到flag,nctf{ni_ye_hui_sql?}<br><img src="http://p8hvan4e5.bkt.clouddn.com/photo-1460819739742-50e4486578f5.jpg" alt="image"><br>passcheck:(<a href="http://chinalover.sinaapp.com/web21/" target="_blank" rel="noopener">http://chinalover.sinaapp.com/web21/</a>)<br>关键是提示：tip:strcmp(array,string)=null=0<br>意思是strcmp这个函数，比较结果相同时返回0….而判断条件是<br>strcmp($pass,$pass1))</p>
+<p>按逻辑来说，这就是要post进去的内容与隐藏的密码相同才行。。<br>然而strcmp比较的内容有数组时会返回null<br>而null 和 0在判断中是等价的。post一个数组进去就好<br>Pass[]=anything</p>
 
           
         
